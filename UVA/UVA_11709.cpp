@@ -48,10 +48,8 @@ int main(){
         memset(visited, false, sizeof(visited));
         for(int i = 0; i < p; i++){
             cin >> sur;
-            //cout << "surname: " << sur << endl;
             sur = sur.substr(0, sur.length() - 1);
             cin >> name;
-            //cout << sur << " " << name << endl;
             fullname = name + sur;
             hash<string> hasher;
             auto hashed = hasher(fullname);
@@ -64,24 +62,19 @@ int main(){
         string fullname2;
         for(int i = 0; i < t; i++){
             cin >> sur;
-            //cout << "surname: " << sur << endl;
             sur = sur.substr(0, sur.length() - 1);
             cin >> name;
-            //cout << sur << " " << name << endl;
             fullname = name + sur;
             /////////////////////
             cin >> sur;
-            //cout << "surname: " << sur << endl;
             sur = sur.substr(0, sur.length() - 1);
             cin >> name;
-            //cout << sur << " " << name << endl;
             fullname2 = name + sur;
             hash<string> hasher;
             auto hashed1 = hasher(fullname);
             auto hashed2 = hasher(fullname2);
             nodes[hashed1].push_back(hashed2);
             rev[hashed2].push_back(hashed1);
-            //cout << "hashed1: " << hashed1 << " 2-> " << hashed2 << endl; 
         }
         for(auto it = nodes.begin(); it != nodes.end(); it++){
             if(!visited[vals[it->first]])
@@ -93,7 +86,6 @@ int main(){
         int total = 0;
 
          for(auto it = order.begin(); it != order.end(); it++){
-            //cout << "Order: " << *it << endl;
             if(!visited[vals[*it]]){
                 dfs2(*it);
                 total++;

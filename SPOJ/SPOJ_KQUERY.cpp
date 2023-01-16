@@ -24,7 +24,6 @@ void build(int a[], int v, int tl, int tr)
 {
     if (tl == tr)
     {
-        // cout << "Just Placed " << a[tl] << " in t[" << v << "]\n";
         t[v].els.insert({-1 * a[tl], 1});
     }
     else
@@ -47,12 +46,10 @@ int sum(int v, int tl, int tr, int l, int r, int k)
             return 0;
         for (auto it = t[v].els.begin(); it != t[v].els.end(); it++)
         {
-            // cout << -1 * it->first << " = " << it->second << " k: " << -1 * k << endl;
             if (it->first < k)
                 count += it->second;
             else
             {
-                // cout << "Returning: " << count << endl;
                 return count;
             }
         }

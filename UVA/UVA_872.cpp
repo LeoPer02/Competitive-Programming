@@ -16,7 +16,6 @@ bool visitedAux[MAX];
 list<int> *adjAux;
 
 void dfs(int v) {
-    //cout << "Entered: " << (char)(v + 65)<< endl;
     visitedAux[v] = true;
     for (int u : adjAux[v]) {
         if (!visitedAux[u])
@@ -49,7 +48,6 @@ void Graph::addNode(int a, int b){
     nodes.insert(a);
     nodes.insert(b);
     adj[a].push_back(b);
-    //cout << "Inserted: " << (char)(a+65) << " and " << (char)(b + 65) << " ADJ ++ " << (char)(a+65) << " -> " << (char)(b+65) << endl;
     if(a != b)nivel[b]++;
 }
 
@@ -58,9 +56,7 @@ void Graph::ordemAux(vector<int>& res, bool visited[]){
  
     for (auto it = nodes.begin(); it != nodes.end(); it++)
     {
-        //cout << "Entrei\n";
         int i = *it;
-        //cout << "i: " << (char)(i+'A') << " Nivel: " << nivel[i] << endl;
         //  If indegree is 0 and not yet visited then
         //  only choose that vertex
         if (nivel[i] == 0 && !visited[i])
@@ -88,7 +84,6 @@ void Graph::ordemAux(vector<int>& res, bool visited[]){
  
     //  We reach here if all vertices are visited.
     //  So we print the solution here
-    //cout << "Flag = " << flag << endl;
     if (!flag)
     {
         if(res.size() != 0){
@@ -150,17 +145,11 @@ int main(){
         getline(cin , line); // Read empty line
         getline(cin, line);
         if(line.size() == 0){
-        //cout << "Line1 " << line << endl;
         getline(cin, line);
-        //cout << "Line2 " << line << endl;
         }
         for(long unsigned int i =0 ; i < line.length(); i++){
-            //cout << line[i] << " \n";
             if(line[i] >= 'A' && line[i] <= 'Z') nodesAux.push_back((int)(line[i] - 65));
-            //cout << line[i] << endl;
         }
-        //cout << endl;
-        //cout << "Nodes size: " << nodesAux.size() << endl;
         Graph g(MAX);
         for(long unsigned int i = 0; i < nodesAux.size(); i++) g.addNode(nodesAux[i], nodesAux[i]);
         getline(cin, line);
@@ -176,17 +165,13 @@ int main(){
         g.addNode((int)line[0] - 'A', (int)line[2]-'A');
         adjAux[(int)(line[0] - 'A')].push_back((int)(line[2] - 'A'));
         for(int i = 0; i<  MAX; i++) visitedAux[i] = false;
-        //printAdj();
         for(auto it = nodesAux.begin(); it != nodesAux.end(); it++) 
             if(!visitedAux[*it]) dfs(*it);
-        //printnodes();
-        //printans();
         if(ans.size() != nodesAux.size()){
             if(cases == 0) cout << "NO\n";
             else cout << "NO\n\n";
         }else{ 
             g.ordem();
-            //cout << "FLAG2: " << flag2 << endl;
             if(flag2){
                 if(cases == 0) cout << "NO\n";
                 else cout << "NO\n\n";

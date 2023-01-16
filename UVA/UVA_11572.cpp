@@ -33,7 +33,6 @@ int main(){
         cin >> c; 
         m.clear();
         max = 0, temp = 0;
-        //cout << "C = " << c << endl;
         for(int j = 0; j< c; j++){
             cin >> a;
             auto search = m.find(a);
@@ -41,15 +40,12 @@ int main(){
             if(search == m.end()){
                 m.insert({a, j});
                 temp++;
-                //cout << "Nao existe: " << a << endl;
             }else{
                 // Atualizar Temp
                 if(max < temp){
                     max = temp;
                 }
-                //cout << "Existe: " << a << " temp e max são: " << temp << " " << max << endl;
                 temp = j - search->second;
-                //cout << "Novo Temp passa a ser: " << temp << endl;
                 // Remove elements that appeared preciously to the starting element
                 for(auto it = m.cbegin(); it != m.end(); ){
                     if(it->second <= search->second){
@@ -66,7 +62,6 @@ int main(){
         if(temp > max){
             max = temp;
         }
-        //cout << "-----------------------------"<< endl;
         cout << max << endl;
         
     }

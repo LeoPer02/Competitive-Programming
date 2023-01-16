@@ -40,7 +40,6 @@ int main(){
                 max = it->second; // update max
             }
             lastPoint = make_pair(-it->first, it->second); // store latest point
-            //cout << "LastPoint: " << lastPoint.first << "  " << lastPoint.second << endl;
         }
         printf("%0.2Lf\n", total);
     }

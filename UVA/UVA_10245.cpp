@@ -45,14 +45,11 @@ long double stripClosest(vector<pair<long double, long double>> strip2, int size
 { 
     long double min = d; // Inicialize with minimum distance of d
 
-    //cout << "Min starts at: " << min << endl;
-
     // Place the points inside the vector with inverted coordinates
     vector<pair<long double, long double>> strip;
     for(auto it = strip2.begin(); it != strip2.end(); it++){
         if(it->second != -1 && it->first != -1){
             strip.push_back(make_pair(it->second, it->first));
-            //cout << "Just pushed: (" << it->second << "," << it->first << ")\n";
         }
     }
     sort(strip.begin(), strip.end());
@@ -62,10 +59,8 @@ long double stripClosest(vector<pair<long double, long double>> strip2, int size
         for (int j = i+1; j < size && (strip[j].first - strip[i].first) < min; ++j) 
             if (dist2(strip[i],strip[j]) < min){ 
                 min = dist2(strip[i], strip[j]);
-                //cout << "Dist was: " << dist2(strip[i], strip[j])<< endl;
             } 
 
-    //cout << "Min is: " << min << endl;
     return min; 
 }
 

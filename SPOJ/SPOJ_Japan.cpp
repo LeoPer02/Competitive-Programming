@@ -51,7 +51,6 @@ int main()
         for (auto it = roads.begin(); it != roads.end(); it++)
         {
             update(it->second, 1);
-            // cout << "Read: " << ftree.read(it->second - 1) << " Of: " << it->second - 1 << endl;
             ans += read(it->second);
         }
         printf("Test Case %d: %ld\n", j + 1, ans);

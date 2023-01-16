@@ -40,21 +40,17 @@ int main(){
         while(!blue.empty() && !green.empty()){
             auto itG = green.cbegin();
             auto itB = blue.cbegin();
-            //cout << "Avaible Greens: " << green.size() << " Avaible Blues: " << blue.size() << endl;
             greenSoldiers.clear();
             blueSoldiers.clear();
             for(int j = 0; j < b; j++){
-                //cout << "Iteração " << j << " Green: " << green.size() << " Blue: " << blue.size() << endl;
                // Separate the lemmings who will fight from the ones who wont
                if(itG != green.end()){
                greenSoldiers.insert(*itG);
-               //cout << "Drafted Green: " << *itG*-1 << "   ";
                itG++;
                }
 
                if(itB != blue.end()){
                blueSoldiers.insert(*itB);
-               //cout << "Drafted Blue: " << *itB*-1 << endl;
                itB++;
                }
                 
@@ -62,7 +58,6 @@ int main(){
             itG = greenSoldiers.begin();
             itB = blueSoldiers.begin();
             for(int j = 0; j < b; j++){
-                //cout << "Green soldier: " << *itG*-1 << " Blue Soldier " << *itB*-1 << endl;
                 if(itG == greenSoldiers.end() && itB == blueSoldiers.end()){
                     break;
                 }else if(itG == greenSoldiers.end()){

@@ -33,11 +33,9 @@ int main(){
     cin.tie(0);
     cout.tie(0);
     cin >>(s+1);
-    //cout << "<" << s+1 << ">\n";
     n = strlen(s+1);
     auto res = prefix_function();
     int size = res[n];
-    //cout << "Size: " << size << endl;
     if(size <= 0) {
         cout << "Just a legend\n";
         return 0;

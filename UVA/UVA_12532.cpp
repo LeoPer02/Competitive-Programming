@@ -94,9 +94,7 @@ signed main()
         for (int i = 1; i <= n; i++)
         {
             cin >> v[i];
-            // cout << v[i] << " ";
         }
-        // cout << endl;
         build(1, 1, n);
         while (k--)
         {
@@ -104,12 +102,10 @@ signed main()
             if (op == 'C')
             {
                 update(1, 1, n, val1, val2);
-                // cout << "Val: " << st[val1] << " Passou para: " << val2 << endl;
             }
             else
             {
                 result = query(1, 1, n, val1, val2);
-                // cout << "Result: " << result << " Query: " << k << endl;
                 if (result == 0)
                     cout << 0;
                 else if (result < 0)

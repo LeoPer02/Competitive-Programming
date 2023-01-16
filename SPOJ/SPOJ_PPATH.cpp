@@ -57,7 +57,6 @@ vector<int> calcChild(int u){
                 int num = stoi(s);
                 if(num != u && is_prime(num)){
                     a.push_back(num);
-                    //cout << "<" << s << ">" << endl;
                 }
             }
         }

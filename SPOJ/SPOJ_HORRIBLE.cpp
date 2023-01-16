@@ -13,9 +13,7 @@ void add(long long int b[], long long int idx, long long int x)
 {
     while (idx <= n)
     {
-        // cout << "Just added: " << x << " To b[" << idx << "]: " << b[idx] << endl;
         b[idx] += x;
-        // cout << "Result: " << b[idx] << endl;
         idx += idx & -idx;
     }
 }

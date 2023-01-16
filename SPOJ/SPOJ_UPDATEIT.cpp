@@ -36,7 +36,6 @@ int main()
         for (int i = 1; i < n; i++)
         {
             v[i] += v[i - 1];
-            // cout << "v[i] = " << v[i] << " I: " << i << endl;
         }
         int q, query;
         cin >> q;

@@ -20,8 +20,6 @@ struct FenwickTree2D
     FenwickTree2D(int n)
     {
         this->n = n;
-        // cout << "Assign Start" << endl;
-        // cout << "bit size: " << n << endl;
         for (int i = 0; i < n + 5; i++)
         {
             vector<int> temp;
@@ -32,12 +30,10 @@ struct FenwickTree2D
             }
             bit.push_back(temp);
         }
-        // cout << "Assign End" << endl;
     }
 
     FenwickTree2D(vector<vector<int>> a) : FenwickTree2D(a.size())
     {
-        // cout << "Add Init Start" << endl;
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < n; j++)
@@ -45,15 +41,11 @@ struct FenwickTree2D
                 add(i, j, a[i][j]);
             }
         }
-        // cout << "Add Init End" << endl;
     }
 
     void set(int x, int y, int val)
     {
-        // cout << "Set Start" << endl;
         this->bit[x][y] = val;
-        // cout << "Set: " << x << " " << y << " to = " << bit[x][y] << endl;
-        //  cout << "Set End" << endl;
     }
 
     int query(int x, int y)
@@ -67,7 +59,6 @@ struct FenwickTree2D
                 sum += bit[i][j];
             }
         }
-        // cout << "Returning: " << sum << " for x: " << x << " y: " << y << endl;
         return sum;
     }
 
@@ -78,23 +69,19 @@ struct FenwickTree2D
 
     int sum(int x, int y)
     {
-        // cout << "Sum Start" << endl;
         int ret = 0;
         for (int i = x; i >= 0; i = (i & (i + 1)) - 1)
             for (int j = y; j >= 0; j = (j & (j + 1)) - 1)
                 ret += bit[i][j];
 
-        // cout << "Sum End" << endl;
         return ret;
     }
 
     void add(int x, int y, int delta)
     {
-        // cout << "Add Start" << endl;
         for (int i = x; i <= n; i += (i & -i))
             for (int j = y; j <= n; j += (j & -j))
                 bit[i][j] += delta;
-        // cout << "Add End" << endl;
     }
 };
 
@@ -110,13 +97,11 @@ int main()
         cin >> n;
         FenwickTree2D ftree(n);
         cin >> op;
-        // cout << "OP: " << op << endl;
         while (op[0] != 'E')
         {
             if (op[1] == 'U')
             {
                 cin >> x1 >> y1 >> x2 >> y2;
-                // cout << "Sum [" << x2 << "," << y2 << "]: " << ftree.sum(x2, y2) << " - Sum [" << x1 << "," << y1 << "]: " << ftree.sum(x1, y1) << endl;
                 x1++;
                 y1++;
                 x2++;

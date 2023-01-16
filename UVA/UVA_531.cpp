@@ -21,7 +21,6 @@ void lcs(vector<string> X, vector<string> Y, int m, int n)
                 L[i][j] = 0;
             else if (X[i - 1] == Y[j - 1])
             {
-                // cout << "São iguais: <" << X[i - 1] << ">" << endl;
                 L[i][j] = L[i - 1][j - 1] + 1;
             }
             else
@@ -56,7 +55,6 @@ void lcs(vector<string> X, vector<string> Y, int m, int n)
     long unsigned int z = 0;
     for (z = 0; z < lcs.size() - 1; z++)
     {
-        // cout << "oi\n";
         cout << lcs[z] << " ";
     }
     cout << lcs[z] << endl;

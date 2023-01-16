@@ -27,9 +27,7 @@ int main(){
             //Simulate Promotion
             auto highest = urn.begin();
             auto lowest = urn.rbegin();
-            //cout << "Highest: " << *highest*-1 << " Lowest: " << *lowest*-1 << endl;
             total += (*highest*-1 - *lowest*-1);
-            //cout << "Total: " << total << endl;
             urn.erase(--urn.end());
             urn.erase(urn.begin());
         }

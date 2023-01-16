@@ -16,10 +16,8 @@ long long int check(int x)
     long long int total = 0;
     for (auto it = buildings.begin(); it != buildings.end(); it++)
     {
-        // cout << "Middle: " << x << " Val: " << it->first << " Cost: " << it->second << endl;
         total += abs(x - it->first) * it->second;
     }
-    // cout << "Total: " << total << endl;
     return total;
 }
 
@@ -27,7 +25,6 @@ int main()
 {
     int cases, n, val;
     cin >> cases;
-    // cout << "Cases: " << cases << endl;
     for (int i = 0; i < cases; i++)
     {
         cin >> n;
@@ -37,7 +34,6 @@ int main()
         long int min = 9999999999;
         for (int j = 0; j < n; j++)
         {
-            // cout << "First for" << endl;
             cin >> build[j];
             // Check for max and min on input to avoid sorting the array
             if (build[j] < min)
@@ -66,7 +62,6 @@ int main()
         while (low < high)
         {
             middle1 = (low + (high - low) / 3), middle2 = high - (high - low) / 3;
-            // cout << "Middle1: " << middle1 << " Value: " << check(middle1) << " Middle2: " << middle2 << " Value: " << check(middle2) << " Low: " << low << " High: " << high << endl;
             long long int f1 = check(middle1), f2 = check(middle2);
             if (f1 > f2)
             {
@@ -75,10 +70,8 @@ int main()
             else
                 high = middle2 - 1;
 
-            // cout << "Still in while" << endl;
         }
         cout << check(high) << endl;
-        // cout << "Cases: " << cases << endl;
     }
     return 0;
 }

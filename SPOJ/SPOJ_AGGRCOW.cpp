@@ -28,22 +28,18 @@ int main()
         // In the worst case, each cow is 1 space appart, in the "best" case theres only 2 cows and they are loccated at the begginig and the end
         long int low = 1;
         long int high = pos[n - 1] - pos[0];
-        // cout << "Low: " << low << " High: " << high << endl;
         while (low <= high)
         {
             long middle = ((low + (high - low) / 2));
-            // cout << "Middle: " << middle << " Low: " << low << " High: " << high << endl;
             //    Check if its possible to place C cows with minimal distance of middle between them
             //    If yes, Low = middle and we check if we can increase that distance
             if (check(pos, middle, c, n))
             {
                 low = middle + 1;
-                // cout << "Foi possivel com: " << middle << " Low: " << low << "  High: " << high << endl;
             }
             else
             {
                 high = middle - 1;
-                // cout << " Não Foi possivel com: " << middle << " Low: " << low << "  High: " << high << endl;
             }
         }
         cout << high << endl;
@@ -59,8 +55,6 @@ bool check(int pos[], int x, int numberCows, int n)
     for (int i = 1; i < n; i++)
     {
         // If the distance between the last cow and the current one is greater than x, place a cow
-        // cout << "X: " << x
-        //     << " Pos[i]: " << pos[i] << " Last: " << lastPlaced << " Sub: " << pos[i] - lastPlaced << " NumberCows: " << numberCows << endl;
         if (pos[i] - lastPlaced >= x)
         {
             numberCows--;

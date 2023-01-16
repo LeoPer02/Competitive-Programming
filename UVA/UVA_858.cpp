@@ -18,7 +18,6 @@ Time Complexity: O(n)
 pair<double, double> inter(pair<int,int> linePoint1, pair<int,int> linePoint2, int path){
     // A equação da linha de voo -> x = path
     double declive = ((double)(linePoint1.second - linePoint2.second)/(double)(linePoint1.first - linePoint2.first));
-    //cout << "Declive deu: " << declive << endl;
 
     // Coeficiente Linear = y - m*x
     double coefLinear =  (double)(linePoint1.second - declive*linePoint1.first);
@@ -26,7 +25,6 @@ pair<double, double> inter(pair<int,int> linePoint1, pair<int,int> linePoint2, i
     // Com isto calculamos o valor de y da interseção
     double interY = declive*path + coefLinear;
 
-    //cout << "InterY: " << interY << " Na linha ---- (" << linePoint1.first << ","<<linePoint1.second << ") <-> (" << linePoint2.first << "," << linePoint2.second << ") e path: " << path << endl;
     return make_pair((double)path, interY);
 }
 
@@ -52,7 +50,6 @@ int main(){
             else
                 lines.push_back(make_pair(lastPoint, make_pair(val1,val2)));
 
-            //cout << "Line: (" << lines[i].first.first << "," << lines[i].first.second << ") -> (" << lines[i].second.first << "," << lines[i].second.second << ")\n";
             lastPoint = make_pair(val1, val2);
         }
         // Fechar o poligno
@@ -61,11 +58,6 @@ int main(){
         int thresh, path;
         cin >> thresh;
         cin >> path;
-        /*
-        for(int i = 0; i < n; i++){
-            cout << "Line: (" << lines[i].first.first << "," << lines[i].first.second << ") -> (" << lines[i].second.first << "," << lines[i].second.second << ")\n";
-        }
-        */
         
         // Iterar pelas linhas do poligno enquanto o x do ponto da linha com menor valor x for menor que path
         // Caso contrário a linha já não interceta o voo
@@ -80,7 +72,6 @@ int main(){
                 dist.push_back(inter1.second);
             } 
         }
-        //cout << "Total: " << total << endl;
 
         // Ordenar o vector para termos y em ordem crescente, para podermos obter o espaço entre interseções consequintes
         sort(dist.begin(), dist.end());

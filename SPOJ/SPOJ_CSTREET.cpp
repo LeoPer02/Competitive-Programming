@@ -114,18 +114,14 @@ int main(){
         cin >> n;
         V = n;
         cin >> m;
-        //cout << "p, n, m: "<< p << " " << n <<  " " << m << endl;
         memset(graph, 0, sizeof(graph));
         for(int i = 0; i< m; i++){
                 cin >> a >> b >> c;
                 a--;
                 b--;
-                //cout << a << " " << b<< " ---> " << graph[a][b] << endl;
                 graph[a][b] = c;
                 graph[b][a] = c;
         }
-        //cout << "--------------------\n";
-        //printGraph();
         cout << primMST()<<endl;
     }
 }

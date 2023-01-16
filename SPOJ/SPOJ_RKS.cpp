@@ -39,13 +39,11 @@ int main()
         {
             it->second += 1;
         }
-        // cout << "Val: " << it->first << " Freq: " << it->second << endl;
         it = pos.find(val);
         if (it == pos.end())
         {
             pos.insert({val, i});
         }
-        // cout << "Val: " << it->first << " Pos: " << it->second << endl;
     }
     for (auto ite = freq.begin(); ite != freq.end(); ite++)
     {
@@ -54,7 +52,6 @@ int main()
         tempValue.pos = pos[ite->first];
         tempValue.num = ite->first;
         arr.push_back(tempValue);
-        // cout << "Freq: " << ite->second << " Pos: " << pos[ite->first] << " Num: " << ite->first << endl;
     }
 
     sort(arr.begin(), arr.end(), [](const value &a, const value &b)

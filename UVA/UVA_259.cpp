@@ -32,15 +32,12 @@ int bfs(int s, int t) {
     while (!q.empty()) {
         int cur = q.front().first;
         int flow = q.front().second;
-        //cout << "cur: " << cur << " flow: " << flow << "\n";
         q.pop();
         for (int next : adj[cur]) {
             if (parent[next] == -1 && capacity[cur][next]) {
                 parent[next] = cur;
                 int new_flow = min(flow, capacity[cur][next]);
-                //cout << "new flow: " << new_flow << " end: " << (next == t) <<  endl;
                 if (next == t){
-                   // cout << "RETURNIG: " << new_flow << " Cur: " << cur << " parent: " << parent[cur] <<  endl;
                     return new_flow;
                 }
                 q.push({next, new_flow});
@@ -57,7 +54,6 @@ int maxflow(int s, int t) {
     int new_flow;
 
     while ((new_flow = bfs(s, t))) {
-        //cout << "Flow: " << new_flow << endl;
         flow += new_flow;
         int cur = t;
         while (cur != s) {
@@ -111,7 +107,6 @@ int main(){
         adj = vector<vector<int>>(55, vector<int>());
         capacity = vector<vector<int>>(55, vector<int>(55, 0));
         tasks.clear();
-        //cout << "Line1: <" << line << ">\n";
         string s1, s2;
         s1 = line.substr(0, line.find(delimiter));
         s2 = line.substr(line.find(delimiter)+1);
@@ -119,7 +114,6 @@ int main(){
         tasks.insert({s1.at(0), s1.at(1) - '0'});
         int pcs[s2.length()-1];
         getPcs(s2, pcs);
-        //cout << "First for\n";
         for(auto i : pcs){
             // For each possible pc for each letter, capacidade[letter][pc] = 1
             // adj[letter][pc]
@@ -128,9 +122,7 @@ int main(){
             adj[getN(s1.at(0))].push_back(i);
             adj[i].push_back(getN(s1.at(0)));
         }
-        //cout << "First while\n";
         while(getline(cin, line), line != ""){
-            //cout << "Line2: <" << line << ">\n";
             s1 = line.substr(0, line.find(delimiter));
             s2 = line.substr(line.find(delimiter)+1);
             tasks.insert({s1.at(0), s1.at(1) - '0'});

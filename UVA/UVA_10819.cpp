@@ -45,7 +45,6 @@ int main()
         int i = 0;
         for (auto it = nmap.begin(); it != nmap.end(); it++)
         {
-            // cout << it->first << " " << it->second << endl;
             wt[i] = it->first;
             val[i] = it->second;
             i++;

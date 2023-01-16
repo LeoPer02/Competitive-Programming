@@ -46,7 +46,6 @@ int main()
         for (int j = values[i]; j < 650; j++)
         {
             dp[j] = min(dp[j], 1 + dp[j - values[i]]);
-            // cout << "DP: " << dp[j] << " j: " << j << endl;
         }
     }
     while (true)
@@ -63,7 +62,6 @@ int main()
         cin >> pricef;
         price = pricef * 1000; // Multiply the number by 1000 so avoid rounding problems
         price /= 10;           // Divide by 10 to get the real value
-        // cout << price << endl;
         printf("%3d\n", coinChange(price, 5)); // Start on 200 ($2)
     }
     return 0;

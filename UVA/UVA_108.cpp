@@ -29,9 +29,7 @@ long int kadane()
                 min = *(col + i);
             }
         }
-        // cout << "Arr: " << *(col + i) << " I: " << i << endl;
         sum += *(col + i);
-        // cout << "Soma: " << sum << endl;
         if (sum > max)
         {
             max = sum;
@@ -97,12 +95,7 @@ int main()
                     col[k] = sums[k][j] - sums[k][i - 1];
                 }
             }
-            // cout << "Just introduced: " << k << " elements." << endl;
             maxSum = max(kadane(), maxSum); // Check if line Kadane is higher then maxSum
-            // cout << "Max: " << maxSum << endl;
-            // cout << " :----------------------------------: " << endl;
-            // cout << "I: " << i << " J: " << j << endl;
-            // cout << " :----------------------------------: " << endl;
         }
     }
     cout << maxSum << endl;

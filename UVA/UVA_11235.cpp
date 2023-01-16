@@ -52,7 +52,6 @@ void build(long int pos, long int start, long int end)
         // That way we reduce this problem to a "find the maximum" problem, with some exceptions
         auto it = freq.find(values[start - 1]);
         st[pos] = it->second.first;
-        // cout << "Meti: " << st[pos] << endl;
     }
     else
     {
@@ -134,7 +133,6 @@ int main()
 
             if (it->second.second.first < val1)
             {
-                // cout << "Primeira condição " << endl;
                 // In case "end" is before val2
                 if (it->second.second.second < val2 && it2->second.second.second <= val2)
                     cout << max((long int)it->second.second.second - val1 + 1, query(1, 1, n, it->second.second.second + 1, val2)) << endl;
